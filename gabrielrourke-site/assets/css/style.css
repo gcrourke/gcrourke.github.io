@@ -1,0 +1,442 @@
+/* ==========================================================================
+   gabrielrourke.com — site styles
+   Fonts are self-hosted (SIL Open Font License; see assets/fonts/).
+   Literata = reading/serif face, Public Sans = navigation and small details.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/literata-latin-standard-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Literata";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/literata-latin-standard-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/public-sans-latin-wght-normal.woff2") format("woff2");
+}
+
+/* ---------- Tokens ---------- */
+:root {
+  --paper: #ffffff;
+  --ink: #1a2233;      /* main text */
+  --muted: #5b6474;    /* secondary text */
+  --rule: #e3e6eb;     /* dividers */
+  --wash: #f4f5f8;     /* quiet backgrounds */
+  --accent: #a51c24;   /* links, current page, primary button */
+  --on-accent: #ffffff;
+
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --page: 62rem;       /* overall page width */
+  --measure: 38rem;    /* comfortable reading width */
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #15181e;
+    --ink: #e8eaef;
+    --muted: #a4abb8;
+    --rule: #2b303a;
+    --wash: #1c2028;
+    --accent: #f08088;
+    --on-accent: #15181e;
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+p { margin: 0 0 1.1em; }
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 0.875rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.skip-link:focus { top: 1rem; }
+
+.wrap {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header ---------- */
+.site-header { border-bottom: 1px solid var(--rule); }
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.site-name {
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid transparent;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Main ---------- */
+main { padding: 3.75rem 0 5rem; }
+
+/* ---------- Home ---------- */
+.intro {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--wash);
+}
+
+.intro h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(2.25rem, 4.6vw, 3rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  margin: 0 0 2.25rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* The one large statement on the site: what the research is about. */
+.lead {
+  max-width: 33rem;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.5625rem);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.008em;
+}
+
+.bio p { max-width: var(--measure); }
+
+.contact {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1.5rem;
+  max-width: var(--measure);
+  margin: 2.25rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1rem;
+}
+.contact dt {
+  padding-top: 0.12em;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.contact dd { margin: 0; }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  text-decoration: none;
+}
+.button:hover { border-color: var(--ink); }
+
+.button--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.button--primary:hover { border-color: var(--accent); filter: brightness(0.92); }
+
+/* ---------- Inner pages ---------- */
+.page-title {
+  margin: 0 0 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.section-title {
+  margin: 3.25rem 0 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.page-title + .section-title { margin-top: 0; }
+
+/* Papers */
+.papers { max-width: 44rem; }
+
+.paper { padding: 1.5rem 0; }
+.paper + .paper { border-top: 1px solid var(--rule); }
+
+.paper h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: -0.005em;
+}
+
+.meta {
+  margin: 0 0 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.paper details { margin-top: 0.5rem; }
+
+.paper summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+.paper summary::-webkit-details-marker { display: none; }
+.paper summary::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  margin-right: 0.1rem;
+  transform: rotate(-45deg);               /* points right when closed */
+  transition: transform 0.15s ease;
+}
+.paper details[open] summary::before { transform: translateY(-0.15rem) rotate(45deg); }  /* points down when open */
+
+.abstract {
+  max-width: var(--measure);
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* Teaching */
+.course-list {
+  max-width: 44rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.course-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  align-items: baseline;
+  padding: 1rem 0;
+}
+.course-list li + li { border-top: 1px solid var(--rule); }
+
+.course-name { font-weight: 600; }
+.course-where,
+.course-term {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+.course-where { grid-column: 1; }
+.course-term {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.note {
+  max-width: var(--measure);
+  margin: 0.75rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* CV */
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: -1rem 0 2rem;
+}
+.cv-frame {
+  display: block;
+  width: 100%;
+  height: 85vh;
+  min-height: 36rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--wash);
+}
+
+/* 404 */
+.not-found p { max-width: var(--measure); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 3rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: inherit; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 720px) {
+  main { padding: 2.5rem 0 4rem; }
+
+  .intro { grid-template-columns: 1fr; gap: 2rem; }
+  .portrait { max-width: 11rem; }
+
+  .site-nav ul { gap: 1.25rem; }
+
+  .course-list li { grid-template-columns: 1fr; }
+  .course-term { grid-column: 1; grid-row: auto; text-align: left; }
+
+  /* Phones show only the first page of an embedded PDF, so use the buttons instead. */
+  .cv-frame { display: none; }
+  .cv-actions { margin-bottom: 0; }
+}
+
+/* ---------- Motion and print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media print {
+  .site-header nav, .site-footer, .skip-link, .links, .cv-actions { display: none; }
+  main { padding: 0; }
+  a { color: inherit; text-decoration: none; }
+  .paper details > *:not(summary) { display: block; }
+}
