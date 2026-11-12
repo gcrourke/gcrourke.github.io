@@ -9,10 +9,13 @@
   window.addEventListener("scroll", update, { passive: true });
 })();
 
-// If someone arrives at /index.html (an old link or bookmark), show the clean address instead.
+// Show clean addresses: /index.html becomes /, and /research.html becomes /research.
 (function () {
-  if (window.location.pathname.slice(-11) === "/index.html") {
-    var clean = window.location.pathname.slice(0, -10) + window.location.search + window.location.hash;
-    try { window.history.replaceState(null, "", clean); } catch (e) {}
+  var path = window.location.pathname;
+  var clean = null;
+  if (path.slice(-11) === "/index.html") clean = path.slice(0, -10);
+  else if (path.slice(-5) === ".html" && path.indexOf("/404") === -1) clean = path.slice(0, -5);
+  if (clean !== null) {
+    try { window.history.replaceState(null, "", clean + window.location.search + window.location.hash); } catch (e) {}
   }
 })();

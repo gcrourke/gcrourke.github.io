@@ -30,6 +30,10 @@ To edit a file on github.com, open it, click the pencil icon, make the change, t
 - **Add a course or syllabus:** in `courses.html`, copy one `<article class="course-card">` block. Upload the syllabus PDF to `files/` and link to it.
 - **Change the menu:** the menu is copied at the top of every page, so change it in all of them.
 
+## Previewing on your own computer (optional)
+
+Links between pages use clean addresses like `/research` without `.html`. GitHub Pages handles these, but double-clicking a file on your computer won't follow them. To preview locally, run `npx serve` in this folder and open the address it prints.
+
 ## Hosting
 
 The site is on GitHub Pages, deployed from the `main` branch's root folder. The domain is registered at Squarespace, and its DNS points to GitHub Pages:
