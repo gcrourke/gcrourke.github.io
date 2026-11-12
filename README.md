@@ -1,41 +1,37 @@
 # gabrielrourke.com
 
-Source for my academic website. It's plain HTML and CSS with no build step: what's in this folder is exactly what GitHub Pages serves.
+Source for my academic website. It's plain HTML and CSS with no build step, so what's in this repository is exactly what GitHub Pages serves.
 
 ## What's where
 
 | File | What it is |
 |---|---|
-| `index.html` | Home page: photo, bio, contact |
-| `research.html` | Papers and abstracts |
-| `teaching.html` | Courses taught |
-| `cv.html` | CV page (shows the PDF below) |
-| `files/Gabriel_Rourke_CV.pdf` | **The CV.** Every CV link on the site points here |
-| `images/profile.jpg` | Profile photo |
-| `assets/css/style.css` | All styling (colors and fonts are at the top) |
-| `CNAME` | Tells GitHub Pages to serve the site at www.gabrielrourke.com. Don't delete it |
+| `index.html` | Home page: banner, photo, bio, contact |
+| `research.html` | Papers. Click a title to open its abstract |
+| `teaching.html` | Office hours and teaching experience |
+| `cv.html` | Full CV as a web page |
+| `images/` | Banner photos (`banner-home.jpg`, `banner-research.jpg`, …) and `profile.jpg` |
+| `assets/css/style.css` | All styling. Colors and fonts are at the top |
+| `CNAME` | Created automatically when you enter www.gabrielrourke.com under Settings → Pages → Custom domain. Once it exists, don't delete it |
 | `home.html`, `404.html` | Redirect for the old `/home` link, and the "page not found" page |
 
 ## Common updates (all doable on github.com)
 
-To edit any file on github.com: open it, click the pencil icon, make the change, then click **Commit changes**. The live site updates about a minute later.
+To edit a file on github.com, open it, click the pencil icon, make the change, then click **Commit changes**. The live site updates about a minute later.
 
-- **New CV:** open the `files` folder, then **Add file → Upload files**, and upload your PDF named exactly `Gabriel_Rourke_CV.pdf`. It replaces the old file.
-- **New photo:** upload to `images/` as `profile.jpg`. A portrait crop (4:5) looks best.
-- **Add a paper:** in `research.html`, copy one `<article class="paper"> … </article>` block and edit it. Upload any PDF drafts to `files/` and link them as `files/name.pdf`. The file has comments showing where.
-- **Add a course:** in `teaching.html`, copy one `<li> … </li>` block and edit it.
-- **Add Google Scholar, SSRN, LinkedIn or GitHub:** in `index.html`, find the commented-out links under "Download CV", remove the `<!--` and `-->` markers, and paste in your URLs.
-- **Change the navigation:** the menu is copied at the top of each page (`index`, `research`, `teaching`, `cv`, `404`). Change it in all of them.
-
-## Previewing changes on your own computer (optional)
-
-Double-click `index.html` to open it in a browser. Everything works except the embedded CV viewer, which needs a web server. For that, run `python3 -m http.server` in this folder and go to http://localhost:8000.
+- **Office hours:** in `teaching.html`, edit the lines under "Office hours".
+- **Add a paper:** in `research.html`, copy one `<details class="paper"> … </details>` block and edit it.
+- **Add a course or a CV line:** copy one `<li> … </li>` line in `teaching.html` or `cv.html` and edit it.
+- **Change a banner photo:** upload a new photo to `images/` with the same name, such as `banner-research.jpg`. Wide photos work best, at least 2000 px across. Each banner also has a smaller `-1200` copy for phones, so either replace that one too or delete its `srcset` line in the page.
+- **New headshot:** upload a square photo to `images/` named `profile.jpg`.
+- **Offer a PDF of the CV:** create a `files` folder, upload `Gabriel_Rourke_CV.pdf` into it, then remove the comment markers around the "Download PDF" button near the top of `cv.html`.
+- **Change the menu:** the menu is copied at the top of every page, so change it in all of them.
 
 ## Hosting
 
-GitHub Pages, deployed from the `main` branch, root folder. The domain is registered at Squarespace, with DNS records pointing to GitHub Pages:
+The site is on GitHub Pages, deployed from the `main` branch's root folder. The domain is registered at Squarespace, and its DNS points to GitHub Pages:
 
 - `@`: four A records pointing to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153
-- `www`: a CNAME record pointing to `<github-username>.github.io`
+- `www`: a CNAME record pointing to `gcrourke.github.io`
 
-Fonts: Literata and Public Sans, self-hosted under the SIL Open Font License (see `assets/fonts/`).
+The fonts (EB Garamond, Gentium Basic and Lato) are self-hosted under the SIL Open Font License. See `assets/fonts/`.

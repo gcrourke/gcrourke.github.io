@@ -1,406 +1,438 @@
 /* ==========================================================================
    gabrielrourke.com — site styles
+   Matches the look of the original Google Site: photo banners with the page
+   title on top, Garamond for titles, Gentium for text, Lato for the menu.
    Fonts are self-hosted (SIL Open Font License; see assets/fonts/).
-   Literata = reading/serif face, Public Sans = navigation and small details.
    ========================================================================== */
 
 @font-face {
-  font-family: "Literata";
+  font-family: "EB Garamond";
   font-style: normal;
-  font-weight: 200 900;
+  font-weight: 400 800;
   font-display: swap;
-  src: url("../fonts/literata-latin-standard-normal.woff2") format("woff2");
+  src: url("../fonts/eb-garamond-latin-wght-normal.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Literata";
+  font-family: "EB Garamond";
   font-style: italic;
-  font-weight: 200 900;
+  font-weight: 400 800;
   font-display: swap;
-  src: url("../fonts/literata-latin-standard-italic.woff2") format("woff2");
+  src: url("../fonts/eb-garamond-latin-wght-italic.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Public Sans";
+  font-family: "Gentium Basic";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400;
   font-display: swap;
-  src: url("../fonts/public-sans-latin-wght-normal.woff2") format("woff2");
+  src: url("../fonts/gentium-basic-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Gentium Basic";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/gentium-basic-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Gentium Basic";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/gentium-basic-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/lato-latin-300-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/lato-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/lato-latin-700-normal.woff2") format("woff2");
 }
 
-/* ---------- Tokens ---------- */
+/* ---------- Colors and fonts (change the site's look here) ---------- */
 :root {
-  --paper: #ffffff;
-  --ink: #1a2233;      /* main text */
-  --muted: #5b6474;    /* secondary text */
-  --rule: #e3e6eb;     /* dividers */
-  --wash: #f4f5f8;     /* quiet backgrounds */
-  --accent: #a51c24;   /* links, current page, primary button */
-  --on-accent: #ffffff;
+  --ink: #212121;       /* main text */
+  --muted: #5f6b72;     /* dates, secondary text */
+  --rule: #e1e5e7;      /* dividers */
+  --wash: #f4f6f6;      /* quiet backgrounds */
+  --link: #006580;      /* links */
+  --teal: #7db6b1;      /* current page in the menu */
+  --teal-dark: #2e7a73; /* current page on light banners */
 
-  --serif: "Literata", Georgia, "Times New Roman", serif;
-  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
-  --page: 62rem;       /* overall page width */
-  --measure: 38rem;    /* comfortable reading width */
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #15181e;
-    --ink: #e8eaef;
-    --muted: #a4abb8;
-    --rule: #2b303a;
-    --wash: #1c2028;
-    --accent: #f08088;
-    --on-accent: #15181e;
-  }
+  --garamond: "EB Garamond", Garamond, "Times New Roman", serif;
+  --text: "Gentium Basic", Georgia, serif;
+  --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: #fff;
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--text);
   font-size: 1.0625rem;
-  line-height: 1.65;
-  font-optical-sizing: auto;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 img { display: block; max-width: 100%; height: auto; }
-
-p { margin: 0 0 1.1em; }
+p { margin: 0 0 1em; }
 
 a {
-  color: var(--accent);
+  color: var(--link);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
+  text-underline-offset: 0.16em;
 }
 a:hover { text-decoration-thickness: 2px; }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 
 .skip-link {
   position: absolute;
   left: 1rem;
   top: -4rem;
-  z-index: 10;
+  z-index: 20;
   padding: 0.5rem 0.875rem;
-  background: var(--ink);
-  color: var(--paper);
+  background: #fff;
+  color: var(--ink);
   font-family: var(--sans);
   font-size: 0.875rem;
-  text-decoration: none;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .skip-link:focus { top: 1rem; }
 
 .wrap {
-  max-width: var(--page);
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* ---------- Header ---------- */
-.site-header { border-bottom: 1px solid var(--rule); }
-
-.site-header .wrap {
+/* ---------- Header: sits on top of the banner photo ---------- */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.site-header .bar {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.75rem 2rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.25rem;
+  gap: 0.5rem 2rem;
+  padding: 1.1rem 1.75rem;
 }
 
 .site-name {
-  font-family: var(--serif);
-  font-size: 1.1875rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #fff;
   text-decoration: none;
 }
 
 .site-nav ul {
   display: flex;
-  gap: 1.75rem;
+  gap: 1.6rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
 .site-nav a {
-  display: inline-block;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid transparent;
   font-family: var(--sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
   text-decoration: none;
 }
-.site-nav a:hover { color: var(--ink); }
+.site-nav a:hover { text-decoration: underline; text-underline-offset: 0.35em; }
 .site-nav a[aria-current="page"] {
-  color: var(--ink);
-  border-bottom-color: var(--accent);
+  color: var(--teal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4em;
+}
+
+/* On a light photo (the painting), the menu switches to dark text.
+   Turn this on with <body class="light-banner">. */
+.light-banner .site-name,
+.light-banner .site-nav a { color: var(--ink); }
+.light-banner .site-nav a[aria-current="page"] { color: var(--teal-dark); }
+
+/* ---------- Banner photo with the page title ---------- */
+.banner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: clamp(15rem, 30vw, 21rem);
+  overflow: hidden;
+  background: #39424a;
+}
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Darkens the top of the photo so the menu and title stay readable. */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.50) 0%,
+    rgba(0, 0, 0, 0.10) 34%,
+    rgba(0, 0, 0, 0.14) 70%,
+    rgba(0, 0, 0, 0.28) 100%);
+}
+.banner--light::after {
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0) 100%);
+}
+
+.banner-text {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 1.5rem 1.5rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+.banner--light .banner-text { color: var(--ink); text-shadow: 0 1px 12px rgba(255, 255, 255, 0.7); }
+
+.banner h1 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+}
+
+/* Home banner: taller, with the name set in Garamond like the original. */
+.banner--home { height: clamp(19rem, 38vw, 28rem); }
+.banner--home h1 {
+  font-family: var(--garamond);
+  font-size: clamp(3rem, 7.6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+.hero-role {
+  margin: 0.15em 0 0.2em;
+  font-family: var(--garamond);
+  font-size: clamp(1.7rem, 4.1vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+.hero-place {
+  margin: 0;
+  font-family: var(--garamond);
+  font-size: clamp(1.2rem, 2.6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
 /* ---------- Main ---------- */
-main { padding: 3.75rem 0 5rem; }
+main { padding: 3.25rem 0 4.5rem; }
+
+h2 {
+  margin: 2.75rem 0 1rem;
+  font-family: var(--garamond);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+h2:first-child { margin-top: 0; }
 
 /* ---------- Home ---------- */
 .intro {
   display: grid;
-  grid-template-columns: 14rem minmax(0, 1fr);
-  gap: 3.5rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: 3rem;
   align-items: start;
 }
-
 .portrait {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 3px;
+  object-position: 50% 30%;
   background: var(--wash);
 }
+.bio p:last-child { margin-bottom: 0; }
 
-.intro h1 {
-  margin: 0 0 0.4rem;
-  font-size: clamp(2.25rem, 4.6vw, 3rem);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.role {
-  margin: 0 0 2.25rem;
-  font-family: var(--sans);
-  font-size: 1rem;
-  color: var(--muted);
-}
-
-/* The one large statement on the site: what the research is about. */
-.lead {
-  max-width: 33rem;
-  margin: 0 0 1.75rem;
-  font-size: clamp(1.3rem, 2.4vw, 1.5625rem);
-  font-weight: 400;
-  line-height: 1.42;
-  letter-spacing: -0.008em;
-}
-
-.bio p { max-width: var(--measure); }
-
-.contact {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.35rem 1.5rem;
-  max-width: var(--measure);
-  margin: 2.25rem 0 0;
-  padding-top: 1.5rem;
+.contact-links {
+  margin: 1.75rem 0 0;
+  padding: 1.25rem 0 0;
   border-top: 1px solid var(--rule);
-  font-size: 1rem;
+  list-style: none;
 }
-.contact dt {
-  padding-top: 0.12em;
+.contact-links li { margin: 0.2rem 0; }
+
+/* ---------- Research ---------- */
+.papers {
+  max-width: 50rem;
+  margin: 0 auto;
+  border-top: 1px solid var(--rule);
+}
+.paper { border-bottom: 1px solid var(--rule); }
+
+.paper summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem 0.25rem;
+  cursor: pointer;
+  list-style: none;
+}
+.paper summary::-webkit-details-marker { display: none; }
+.paper summary:hover .paper-title { color: var(--link); }
+
+.paper-title {
+  font-family: var(--garamond);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.3;
+  transition: color 0.15s ease;
+}
+.paper-title .coauthors { font-style: normal; font-size: 0.85em; color: var(--muted); }
+
+/* Chevron on the right, like the original's expandable sections */
+.chev {
+  flex: none;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-top: 0.7rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.paper[open] .chev { transform: translateY(0.3rem) rotate(-135deg); }
+
+.paper-body { padding: 0 0.25rem 1.5rem; }
+.paper-body p { max-width: 44rem; }
+.status {
   font-family: var(--sans);
   font-size: 0.875rem;
   color: var(--muted);
 }
-.contact dd { margin: 0; }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.75rem 0 0;
-  padding: 0;
-  list-style: none;
-}
+/* ---------- Teaching ---------- */
+.hours p { margin: 0 0 0.35em; }
+.hours .place { margin-top: 0.75em; color: var(--muted); }
 
-.button {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  font-family: var(--sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--ink);
-  text-decoration: none;
-}
-.button:hover { border-color: var(--ink); }
-
-.button--primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
-}
-.button--primary:hover { border-color: var(--accent); filter: brightness(0.92); }
-
-/* ---------- Inner pages ---------- */
-.page-title {
-  margin: 0 0 2.5rem;
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-.section-title {
-  margin: 3.25rem 0 0.5rem;
-  font-size: 1.375rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-.page-title + .section-title { margin-top: 0; }
-
-/* Papers */
-.papers { max-width: 44rem; }
-
-.paper { padding: 1.5rem 0; }
-.paper + .paper { border-top: 1px solid var(--rule); }
-
-.paper h3 {
-  margin: 0 0 0.3rem;
-  font-size: 1.1875rem;
-  font-weight: 600;
-  line-height: 1.38;
-  letter-spacing: -0.005em;
-}
-
-.meta {
-  margin: 0 0 0.6rem;
-  font-family: var(--sans);
-  font-size: 0.9375rem;
-  color: var(--muted);
-}
-
-.paper details { margin-top: 0.5rem; }
-
-.paper summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  cursor: pointer;
-  list-style: none;
-  font-family: var(--sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--accent);
-}
-.paper summary::-webkit-details-marker { display: none; }
-.paper summary::before {
-  content: "";
-  width: 0.45rem;
-  height: 0.45rem;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  margin-right: 0.1rem;
-  transform: rotate(-45deg);               /* points right when closed */
-  transition: transform 0.15s ease;
-}
-.paper details[open] summary::before { transform: translateY(-0.15rem) rotate(45deg); }  /* points down when open */
-
-.abstract {
-  max-width: var(--measure);
-  margin: 0.75rem 0 0;
-  font-size: 1rem;
-  line-height: 1.68;
-}
-
-.paper-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.25rem;
-  margin: 0.75rem 0 0;
-  padding: 0;
-  list-style: none;
-  font-family: var(--sans);
-  font-size: 0.9375rem;
-  font-weight: 500;
-}
-
-/* Teaching */
-.course-list {
-  max-width: 44rem;
+.entries {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.course-list li {
+.entries li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 2rem;
   align-items: baseline;
-  padding: 1rem 0;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule);
 }
-.course-list li + li { border-top: 1px solid var(--rule); }
-
-.course-name { font-weight: 600; }
-.course-where,
-.course-term {
+.entries li:last-child { border-bottom: 1px solid var(--rule); }
+.entry-main strong { font-weight: 700; }
+.entry-sub { display: block; color: var(--muted); font-size: 0.97em; }
+.entry-date {
   font-family: var(--sans);
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   color: var(--muted);
-}
-.course-where { grid-column: 1; }
-.course-term {
-  grid-column: 2;
-  grid-row: 1;
   text-align: right;
   white-space: nowrap;
 }
 
-.note {
-  max-width: var(--measure);
-  margin: 0.75rem 0 0;
+/* ---------- CV ---------- */
+.cv-head {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.cv-head .name {
+  margin: 0 0 0.25rem;
+  font-family: var(--garamond);
+  font-size: 2.25rem;
+  font-weight: 500;
+}
+.cv-head p { margin: 0; }
+.cv-actions { margin-top: 1rem; }
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--link);
+  border-radius: 3px;
   font-family: var(--sans);
-  font-size: 0.9375rem;
-  color: var(--muted);
+  font-size: 0.95rem;
+  color: var(--link);
+  text-decoration: none;
 }
+.button:hover { background: var(--link); color: #fff; }
 
-/* CV */
-.cv-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: -1rem 0 2rem;
+.cv h2 {
+  margin: 2.5rem 0 0.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ink);
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
 }
-.cv-frame {
-  display: block;
-  width: 100%;
-  height: 85vh;
-  min-height: 36rem;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  background: var(--wash);
-}
+.cv .entries li { border-top: 0; padding: 0.55rem 0; }
+.cv .entries li:last-child { border-bottom: 0; }
+.cv .para { margin: 0.7rem 0 0; }
 
-/* 404 */
-.not-found p { max-width: var(--measure); }
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 2rem;
+  margin: 2.5rem 0 0;
+}
+.facts dt { font-family: var(--garamond); font-size: 1.2rem; font-weight: 600; font-variant: small-caps; letter-spacing: 0.04em; }
+.facts dd { margin: 0; padding-top: 0.1rem; }
+
+.refs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem 2rem;
+  margin-top: 1rem;
+}
+.refs p { margin: 0; line-height: 1.55; }
+.refs strong { font-weight: 700; }
 
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--rule);
-  padding: 2rem 0 3rem;
+  padding: 1.5rem 0 2.5rem;
   font-family: var(--sans);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--muted);
 }
 .site-footer .wrap {
@@ -414,29 +446,31 @@ main { padding: 3.75rem 0 5rem; }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 720px) {
-  main { padding: 2.5rem 0 4rem; }
+  .site-header .bar { padding: 0.9rem 1.1rem; }
+  .site-name { font-size: 1.25rem; }
+  .site-nav ul { gap: 1.1rem; }
+  .banner-text { padding-top: 5.5rem; }
+
+  main { padding: 2.25rem 0 3.5rem; }
 
   .intro { grid-template-columns: 1fr; gap: 2rem; }
-  .portrait { max-width: 11rem; }
+  .portrait { max-width: 20rem; }
 
-  .site-nav ul { gap: 1.25rem; }
+  .paper-title { font-size: 1.3rem; }
 
-  .course-list li { grid-template-columns: 1fr; }
-  .course-term { grid-column: 1; grid-row: auto; text-align: left; }
+  .entries li { grid-template-columns: 1fr; }
+  .entry-date { text-align: left; }
 
-  /* Phones show only the first page of an embedded PDF, so use the buttons instead. */
-  .cv-frame { display: none; }
-  .cv-actions { margin-bottom: 0; }
+  .facts { grid-template-columns: 1fr; gap: 0.1rem; }
+  .facts dd { margin-bottom: 0.9rem; }
 }
 
-/* ---------- Motion and print ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
 
 @media print {
-  .site-header nav, .site-footer, .skip-link, .links, .cv-actions { display: none; }
+  .site-header, .banner, .site-footer, .skip-link, .cv-actions { display: none; }
   main { padding: 0; }
   a { color: inherit; text-decoration: none; }
-  .paper details > *:not(summary) { display: block; }
 }

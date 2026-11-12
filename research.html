@@ -4,86 +4,94 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Gabriel Rourke</title>
-  <meta name="description" content="Research by Gabriel Rourke on hospital consolidation, immigration and native labor market outcomes, and monetary policy.">
+  <meta name="description" content="Research by Gabriel Rourke on hospital consolidation, immigration and native labor market outcomes, and reserve requirements.">
   <link rel="canonical" href="https://www.gabrielrourke.com/research.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/literata-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/gentium-basic-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Research — Gabriel Rourke">
+  <meta property="og:description" content="Research by Gabriel Rourke on hospital consolidation, immigration and native labor market outcomes, and reserve requirements.">
   <meta property="og:url" content="https://www.gabrielrourke.com/research.html">
-  <meta property="og:image" content="https://www.gabrielrourke.com/images/profile.jpg">
+  <meta property="og:image" content="https://www.gabrielrourke.com/images/social-preview.jpg">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="bar">
       <a class="site-name" href="index.html">Gabriel Rourke</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="research.html" aria-current="page">Research</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
           <li><a href="cv.html">CV</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- Banner photo: to change it, replace images/banner-research.jpg -->
+  <div class="banner">
+    <img src="images/banner-research.jpg" srcset="images/banner-research-1200.jpg 1200w, images/banner-research.jpg 2400w" sizes="100vw" alt="" style="object-position: 50% 40%">
+    <div class="banner-text">
+      <h1>Research</h1>
+    </div>
+  </div>
+
   <main id="main">
     <div class="wrap">
-      <h1 class="page-title">Research</h1>
-
       <!--
-        HOW TO ADD A PAPER
-        Copy everything from <article class="paper"> to </article>, paste it where
-        you want it in the list, and change the title, abstract and links.
-        To add a new group (e.g. "Job market paper" or "Publications"), copy an
-        <h2 class="section-title"> line and put papers under it.
-        Put PDFs in the files/ folder and link them as files/your-file.pdf
+        HOW TO ADD A PAPER: copy everything from <details class="paper"> to </details>,
+        paste it where you want it, and change the title and abstract.
+        Click a title on the live site to open its abstract.
       -->
-
-      <h2 class="section-title">Work in progress</h2>
-
       <div class="papers">
-        <article class="paper">
-          <!-- WORKING TITLE: replace with your real title -->
-          <h3>Hospital Consolidation and the Labor Market for Clinical Staff</h3>
-          <details>
-            <summary>Abstract</summary>
-            <p class="abstract">Between 2016 and 2022, hospital mergers and acquisitions increased concentration in many local health care markets. This paper asks whether that consolidation changed employment and wages for registered nurses, nurse practitioners, and physician assistants. I link Medicare ownership-change and provider-enrollment records (CMS CHOW and PECOS) to occupational employment and wage data from the BLS (OEWS) across U.S. metropolitan areas, and estimate effects with a staggered difference-in-differences design and event studies.</p>
-          </details>
-          <!-- Add links when you have them:
-          <ul class="paper-links">
-            <li><a href="files/hospital-consolidation-draft.pdf">Draft</a></li>
-            <li><a href="files/hospital-consolidation-slides.pdf">Slides</a></li>
-          </ul>
-          -->
-        </article>
-
-        <article class="paper">
-          <h3>Resort Town Shortages: Effect of J-1 Visa Restrictions on the Labor Market Outcomes of Natives</h3>
-          <details>
-            <summary>Abstract</summary>
-            <p class="abstract">In June 2020, a presidential proclamation suspended entry for participants in the J-1 Summer Work Travel program and several other groups of temporary foreign workers. Participation in the program fell from 108,301 in 2019 to 4,952 in 2020. I use this shock and a synthetic control design to estimate its effects on employment, average weekly wages, and unemployment among native workers.</p>
-          </details>
-        </article>
-
-        <article class="paper">
-          <h3>Reserve Requirements in the 21st Century: Understanding the Monetary Policy Tools of Developing Economies</h3>
-          <p class="meta">with Rodrigo Razo Solares</p>
-          <details>
-            <summary>Abstract</summary>
-            <p class="abstract">Reserve requirements oblige banks to hold a minimum share of their deposits as liquid assets. First used in the 1800s to build trust in banks and manage liquidity, they later became a tool for controlling the money supply. Many central banks have since abandoned them, while others, including Brazil, China, and India, adjust them frequently as part of monetary policy. We argue that reserve requirements are an effective tool for countries trying to limit large capital inflows, either by withdrawing domestic liquidity or by acting countercyclically to discourage inflows.</p>
-          </details>
-        </article>
+        <!-- WORKING TITLE: replace with the real title -->
+        <details class="paper">
+          <summary>
+            <span class="paper-title">Hospital Consolidation and the Labor Market for Clinical Staff</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="paper-body">
+            <p>Between 2016 and 2022, hospital mergers and acquisitions increased concentration in many local health care markets. This paper asks whether that consolidation changed employment and wages for registered nurses, nurse practitioners, and physician assistants. I link Medicare ownership-change and provider-enrollment records (CMS CHOW and PECOS) to occupational employment and wage data from the BLS (OEWS) across U.S. metropolitan areas, and estimate effects with a staggered difference-in-differences design and event studies.</p>
+            <!-- Add links when you have them:
+            <p><a href="files/paper-draft.pdf">Draft (PDF)</a></p>
+            -->
+          </div>
+        </details>
+        <details class="paper">
+          <summary>
+            <span class="paper-title">Resort Town Shortages: Effect of J-1 Visa Restrictions on the Labor Market Outcomes of Natives</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="paper-body">
+            <p>In the summer of 2020, numerous changes were made to immigration policy in response to the Covid-19 pandemic. One such change was Proclamation 10052, which extended Proclamation 10014 and suspended entry for numerous visa holders. One particularly affected group was the J-1 Summer Work Travel (SWT) program, where participation went from 108,301 participants in 2019 to 4,952 in 2020. This provides a unique opportunity to estimate the labor market impact of immigration. Using a synthetic control method, I estimate the effects of this sudden immigration shock on employment levels, average weekly wages, and unemployment.</p>
+            <!-- Add links when you have them:
+            <p><a href="files/paper-draft.pdf">Draft (PDF)</a></p>
+            -->
+          </div>
+        </details>
+        <details class="paper">
+          <summary>
+            <span class="paper-title">Reserve Requirements in the 21st Century: Understanding the Monetary Policy Tools of Developing Economies <span class="coauthors">(with Rodrigo Razo Solares)</span></span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="paper-body">
+            <p>Reserve requirements are a form of banking regulation that requires depository institutions to hold a minimum amount of liquid assets relative to their deposit liabilities, a proportion called the reserve ratio. Starting in the 1800s, they were used to promote trust in banks and security in the liquidity market, and later as a form of monetary policy to control the money supply. In recent years they have fallen out of favor with central banks, many of which have scrapped them completely. Some countries keep low and stable requirements as a formality, while others (Brazil, China, India) change them often and use them as a monetary policy tool. We find that reserve requirements are an effective monetary policy tool for countries trying to limit the effect of high capital inflows, either by withdrawing domestic liquidity or as a countercyclical action that disincentivizes capital inflows.</p>
+            <!-- Add links when you have them:
+            <p><a href="files/paper-draft.pdf">Draft (PDF)</a></p>
+            -->
+          </div>
+        </details>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© Gabriel Rourke</p>
+      <p>All photos my own</p>
       <p><a href="mailto:gcrourke@bu.edu">gcrourke@bu.edu</a></p>
     </div>
   </footer>
