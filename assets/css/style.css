@@ -513,7 +513,8 @@ h2:first-child { margin-top: 0; }
   color: var(--muted);
   white-space: nowrap;
 }
-.mode--zoom { border-color: rgba(125, 182, 177, 0.45); color: var(--teal); }
+.mode--zoom { border-color: rgba(125, 182, 177, 0.45); color: var(--teal); text-decoration: none; }
+a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
 .hours .place {
   grid-column: 1 / -1;
   margin: 0.85rem 0 0;
@@ -549,6 +550,14 @@ h2:first-child { margin-top: 0; }
   white-space: nowrap;
 }
 
+.hours .zoom-link {
+  grid-column: 1 / -1;
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
 /* ---------- CV ---------- */
 .cv-head {
   margin-bottom: 2.75rem;
@@ -562,8 +571,8 @@ h2:first-child { margin-top: 0; }
   color: var(--ink-strong);
 }
 .cv-head p { margin: 0; color: var(--muted); }
-.cv-head a { color: var(--link); }
-.cv-actions { margin-top: 1.25rem !important; }
+.cv-head p a { color: var(--link); }
+.cv-actions { justify-content: center; margin-top: 1.25rem !important; }
 
 .cv h2 {
   margin: 2.75rem 0 0.5rem;

@@ -9,7 +9,8 @@ Source for my academic website. It's plain HTML and CSS with no build step, so w
 | `index.html` | Home page: banner, photo, bio, contact |
 | `research.html` | Papers. Click a title to open its abstract |
 | `teaching.html` | Office hours and teaching experience |
-| `cv.html` | Full CV as a web page |
+| `cv.html` | Full CV as a web page, with Download/Open PDF buttons |
+| `files/Gabriel_Rourke_CV.pdf` | The CV PDF the buttons point to |
 | `images/` | Banner photos (`banner-home.jpg`, `banner-research.jpg`, …) and `profile.jpg` |
 | `assets/css/style.css` | All styling. Colors and fonts are at the top |
 | `CNAME` | Created automatically when you enter www.gabrielrourke.com under Settings → Pages → Custom domain. Once it exists, don't delete it |
@@ -19,12 +20,12 @@ Source for my academic website. It's plain HTML and CSS with no build step, so w
 
 To edit a file on github.com, open it, click the pencil icon, make the change, then click **Commit changes**. The live site updates about a minute later.
 
-- **Office hours:** in `teaching.html`, edit the lines under "Office hours".
+- **Office hours:** in `teaching.html`, edit the lines under "Office hours". Each course has its own box, and the Zoom link appears in each.
 - **Add a paper:** in `research.html`, copy one `<details class="paper"> … </details>` block and edit it.
 - **Add a course or a CV line:** copy one `<li> … </li>` line in `teaching.html` or `cv.html` and edit it.
 - **Change a banner photo:** upload a new photo to `images/` with the same name, such as `banner-research.jpg`. Wide photos work best, at least 2000 px across. Each banner also has a smaller `-1200` copy for phones, so either replace that one too or delete its `srcset` line in the page.
 - **New headshot:** upload a square photo to `images/` named `profile.jpg`.
-- **Offer a PDF of the CV:** create a `files` folder, upload `Gabriel_Rourke_CV.pdf` into it, then remove the comment markers around the "Download PDF" button near the top of `cv.html`.
+- **New CV PDF:** upload it to `files/` named exactly `Gabriel_Rourke_CV.pdf`. That replaces the old file and the buttons keep working. The web version in `cv.html` is separate text, so update it too.
 - **Change the menu:** the menu is copied at the top of every page, so change it in all of them.
 
 ## Hosting
