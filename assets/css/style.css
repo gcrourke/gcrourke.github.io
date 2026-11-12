@@ -366,11 +366,6 @@ h2:first-child { margin-top: 0; }
   z-index: 2;
 }
 .bio { padding-top: 0.5rem; }
-.bio p:first-child {
-  font-size: 1.2rem;
-  line-height: 1.65;
-  color: var(--ink-strong);
-}
 
 .contact-links {
   display: flex;
@@ -604,7 +599,7 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
 
 .refs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -617,7 +612,7 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
   line-height: 1.6;
   color: var(--muted);
 }
-.refs strong { display: block; margin-bottom: 0.2rem; font-weight: 700; color: var(--ink-strong); }
+.refs strong { font-weight: 700; color: var(--ink-strong); }
 
 /* ---------- 404 ---------- */
 .not-found { text-align: center; }
@@ -666,6 +661,7 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
   .hours .time { white-space: normal; }
   .mode { padding: 0.05rem 0.45rem; font-size: 0.7rem; }
   .facts { grid-template-columns: 1fr; gap: 0.1rem; }
+  .refs { grid-template-columns: 1fr; }
   .facts dd { margin-bottom: 0.9rem; }
 }
 
