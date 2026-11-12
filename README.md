@@ -9,7 +9,7 @@ Source for my academic website. It's plain HTML and CSS with no build step, so w
 | `index.html` | Home page: banner, photo, bio, contact |
 | `research.html` | Papers. Click a title to open its abstract |
 | `teaching.html` | Office hours and teaching experience |
-| `econ390.html` | ECON 390 course page: course info, grading, schedule and readings. The syllabus PDF is in `files/econ390/` |
+| `courses.html` | Courses page with syllabi. It's linked from the Teaching page and isn't in the menu. The syllabus PDF is in `files/econ390/` |
 | `cv.html` | Full CV as a web page, with Download/Open PDF buttons |
 | `files/Gabriel_Rourke_CV.pdf` | The CV PDF the buttons point to |
 | `images/` | Banner photos (`banner-home.jpg`, `banner-research.jpg`, …) and `profile.jpg` |
@@ -27,7 +27,7 @@ To edit a file on github.com, open it, click the pencil icon, make the change, t
 - **Change a banner photo:** upload a new photo to `images/` with the same name, such as `banner-research.jpg`. Wide photos work best, at least 2000 px across. Each banner also has a smaller `-1200` copy for phones, so either replace that one too or delete its `srcset` line in the page.
 - **New headshot:** upload a square photo to `images/` named `profile.jpg`. The outdoor photo is saved as `images/profile-outdoor.jpg`. To use it instead, change `profile.jpg` to `profile-outdoor.jpg` in `index.html`.
 - **New CV PDF:** upload it to `files/` named exactly `Gabriel_Rourke_CV.pdf`. That replaces the old file and the buttons keep working. The web version in `cv.html` is separate text, so update it too.
-- **ECON 390 slides:** upload PDFs to `files/econ390/`. Each lecture in `econ390.html` has a slides link that's switched off; remove its comment markers and check the file name.
+- **Add a course or syllabus:** in `courses.html`, copy one `<article class="course-card">` block. Upload the syllabus PDF to `files/` and link to it.
 - **Change the menu:** the menu is copied at the top of every page, so change it in all of them.
 
 ## Hosting

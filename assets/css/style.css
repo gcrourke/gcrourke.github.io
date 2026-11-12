@@ -410,6 +410,9 @@ h2:first-child { margin-top: 0; }
   font-size: 0.95rem;
 }
 .pill {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.4;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -594,192 +597,36 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
   color: var(--muted);
 }
 
-/* ---------- Course page (ECON 390) ---------- */
-.banner-sub {
-  margin: 0.6rem 0 0;
-  font-family: var(--garamond);
-  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
-  font-style: italic;
-  line-height: 1.15;
-}
-.banner-sub span {
-  display: inline-block;
-  margin-top: 0.4rem;
-  font-family: var(--sans);
-  font-size: 0.42em;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.85);
-}
-.banner--course h1::after { display: none; }
-
-.course-top {
+/* ---------- Courses page ---------- */
+.course-list {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem 2.5rem;
-  align-items: start;
-  padding: 1.6rem 1.75rem;
+  gap: 1.25rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.course-card {
+  padding: 1.75rem 2rem 1.9rem;
   background: var(--bg-raised);
   border: 1px solid var(--rule);
   border-top: 3px solid var(--teal);
   border-radius: 4px;
 }
-.course-info {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.45rem 1.5rem;
-  margin: 0;
-}
-.course-info dt {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--ink-strong);
-  padding-top: 0.15rem;
-}
-.course-info dd { margin: 0; }
-.course-actions { flex-direction: column; align-items: stretch; margin: 0; }
-.course-actions .pill { justify-content: center; }
-
-.lede { max-width: 46rem; }
-
-.part-cards {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 1.75rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.part-cards li {
-  padding: 1.1rem 1.15rem 1.25rem;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
-.part-cards strong {
-  display: block;
-  margin: 0.15rem 0 0.4rem;
-  font-family: var(--garamond);
-  font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--ink-strong);
-}
-.part-num {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--teal);
-}
-
-.grade-bar {
-  display: flex;
-  gap: 3px;
-  height: 0.9rem;
-  margin: 0.5rem 0 1rem;
-  border-radius: 999px;
-  overflow: hidden;
-}
-.seg-0 { background: #7db6b1; }
-.seg-1 { background: #5a9a95; }
-.seg-2 { background: #a9d1cd; }
-.seg-3 { background: #3f7c78; }
-.seg-4 { background: #d6e9e7; }
-.grade-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.6rem;
-  margin: 0 0 0.75rem;
-  padding: 0;
-  list-style: none;
-  font-family: var(--sans);
-  font-size: 0.92rem;
-}
-.grade-legend li { display: inline-flex; align-items: center; gap: 0.5rem; }
-.grade-legend b { color: var(--ink-strong); }
-.sw { width: 0.75rem; height: 0.75rem; border-radius: 3px; }
-
-.part { margin-top: 2.25rem; }
-.part h3 {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin: 0 0 0.5rem;
-  font-family: var(--garamond);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--ink-strong);
-}
-.schedule { margin: 0; padding: 0; list-style: none; }
-.lec {
-  display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  gap: 0 1.5rem;
-  padding: 1rem 0.75rem;
-  border-top: 1px solid var(--rule);
-  border-radius: 4px;
-  transition: opacity 0.2s ease;
-}
-.lec-when { display: flex; flex-direction: column; gap: 0.15rem; }
-.lec-num {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--teal);
-}
-.lec-date { font-family: var(--sans); font-size: 0.9rem; color: var(--muted); line-height: 1.45; }
-.lec h4 {
+.course-term {
   margin: 0 0 0.35rem;
-  font-family: var(--text);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink-strong);
-}
-.readings { margin: 0; padding: 0; list-style: none; font-size: 0.97rem; line-height: 1.6; }
-.readings li { margin: 0.2rem 0; }
-.readings .none { color: var(--muted); font-style: italic; }
-.readings em { color: var(--muted); }
-.r-date {
-  display: inline-block;
-  min-width: 3.4rem;
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--teal);
 }
-.due {
-  display: inline-block;
-  margin: 0.5rem 0.5rem 0 0;
-  padding: 0.12rem 0.6rem;
-  border: 1px solid rgba(125, 182, 177, 0.45);
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  color: var(--teal);
+.course-card .course-title {
+  display: block;
+  margin: 0 0 0.25rem;
+  font-size: 1.85rem;
 }
-.lec.is-past { opacity: 0.55; }
-.lec.is-past:hover { opacity: 1; }
-.lec.is-next {
-  background: var(--bg-raised);
-  border-top-color: transparent;
-  box-shadow: inset 3px 0 0 var(--teal), 0 0 0 1px var(--rule);
-}
-.next-tag {
-  align-self: flex-start;
-  margin-top: 0.4rem;
-  padding: 0.1rem 0.55rem;
-  border-radius: 999px;
-  background: var(--teal);
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--bg);
-}
+.course-card .course-title::after { display: none; }
+.course-school { margin: 0 0 1.4rem; color: var(--muted); }
+.course-card p:last-child { margin-bottom: 0; }
 
 /* ---------- CV ---------- */
 .cv-head {
@@ -828,6 +675,7 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
 .refs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -867,7 +715,6 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 960px) and (min-width: 761px) {
-  .part-cards { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -893,16 +740,7 @@ a.mode--zoom:hover { background: rgba(125, 182, 177, 0.12); color: #fff; }
   .hours .time { white-space: normal; }
   .mode { padding: 0.05rem 0.45rem; font-size: 0.7rem; }
   .facts { grid-template-columns: 1fr; gap: 0.1rem; }
-  .course-top { grid-template-columns: 1fr; padding: 1.25rem; }
-  .course-actions { flex-direction: row; flex-wrap: wrap; }
-  .course-info { grid-template-columns: 1fr; gap: 0; }
-  .course-info dd { margin-bottom: 0.6rem; }
-  .part-cards { grid-template-columns: 1fr 1fr; }
-  .lec { grid-template-columns: 1fr; gap: 0.35rem; }
-  .lec-when { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.75rem; }
-  .lec-date br { display: none; }
-  .next-tag { margin-top: 0; }
-  .refs { grid-template-columns: 1fr; }
+  .refs { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .facts dd { margin-bottom: 0.9rem; }
 }
 
