@@ -24,7 +24,7 @@ To edit a file on github.com, open it, click the pencil icon, make the change, t
 - **Add a paper:** in `research.html`, copy one `<details class="paper"> … </details>` block and edit it.
 - **Add a course or a CV line:** copy one `<li> … </li>` line in `teaching.html` or `cv.html` and edit it.
 - **Change a banner photo:** upload a new photo to `images/` with the same name, such as `banner-research.jpg`. Wide photos work best, at least 2000 px across. Each banner also has a smaller `-1200` copy for phones, so either replace that one too or delete its `srcset` line in the page.
-- **New headshot:** upload a square photo to `images/` named `profile.jpg`.
+- **New headshot:** upload a square photo to `images/` named `profile.jpg`. Your studio headshot is saved as `images/profile-studio.jpg`. To switch back to it, change `profile.jpg` to `profile-studio.jpg` in `index.html`.
 - **New CV PDF:** upload it to `files/` named exactly `Gabriel_Rourke_CV.pdf`. That replaces the old file and the buttons keep working. The web version in `cv.html` is separate text, so update it too.
 - **Change the menu:** the menu is copied at the top of every page, so change it in all of them.
 

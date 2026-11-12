@@ -294,28 +294,60 @@ a:hover { color: var(--ink-strong); text-decoration-color: var(--teal); }
 }
 .banner--home h1::after { display: none; }
 
-/* Home banner: taller, with the name in Garamond like the original. */
-.banner--home { height: clamp(21rem, 44vw, 32rem); }
+/* Home banner: taller, with the name set large in Garamond. */
+.banner--home { height: clamp(22rem, 46vw, 34rem); }
+/* A soft dark glow behind the title so it stands out from the skyline */
+.banner--home::after {
+  background:
+    radial-gradient(ellipse 52% 46% at 50% 50%, rgba(10, 14, 18, 0.5), rgba(10, 14, 18, 0) 72%),
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.62) 0%,
+      rgba(0, 0, 0, 0.2) 28%,
+      rgba(18, 23, 28, 0.15) 58%,
+      rgba(18, 23, 28, 0.75) 86%,
+      var(--bg) 100%);
+}
+.banner--home .banner-text {
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 .banner--home h1 {
   font-family: var(--garamond);
-  font-size: clamp(3rem, 7.6vw, 5.6rem);
-  font-weight: 400;
-  letter-spacing: 2px;
+  font-size: clamp(3.3rem, 8.6vw, 6.6rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.005em;
 }
 .hero-role {
-  margin: 0.15em 0 0.25em;
+  margin: 0.3em 0 0.6em;
   font-family: var(--garamond);
-  font-size: clamp(1.7rem, 4.1vw, 3rem);
+  font-size: clamp(1.55rem, 3.7vw, 2.65rem);
+  font-style: italic;
   font-weight: 400;
   line-height: 1.1;
-  letter-spacing: 2px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.94);
 }
+/* "Boston University" in small capitals between two short teal lines */
 .hero-place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
   margin: 0;
   font-family: var(--garamond);
-  font-size: clamp(1.15rem, 2.5vw, 1.9rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.14em;
+}
+.hero-place::before,
+.hero-place::after {
+  content: "";
+  flex: none;
+  width: clamp(1.5rem, 5vw, 3.5rem);
+  height: 1px;
+  background: var(--teal);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1); } }
