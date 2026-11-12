@@ -9,6 +9,7 @@ Source for my academic website. It's plain HTML and CSS with no build step, so w
 | `index.html` | Home page: banner, photo, bio, contact |
 | `research.html` | Papers. Click a title to open its abstract |
 | `teaching.html` | Office hours and teaching experience |
+| `evaluations.html` | Student evaluations: ratings and selected comments. Linked from the Teaching page, not in the menu |
 | `courses.html` | Courses page with syllabi. It's linked from the Teaching page and isn't in the menu. The syllabus PDF is in `files/econ390/` |
 | `cv.html` | Full CV as a web page, with Download/Open PDF buttons |
 | `files/Gabriel_Rourke_CV.pdf` | The CV PDF the buttons point to |
