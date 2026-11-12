@@ -426,6 +426,9 @@ h2:first-child { margin-top: 0; }
 }
 .paper summary:hover .paper-title,
 .paper[open] .paper-title { color: var(--teal); }
+.paper--static { padding: 1.5rem 0.25rem; }
+.paper--static .paper-title { display: block; margin: 0; }
+
 .paper-title .coauthors { font-style: normal; font-size: 0.8em; color: var(--muted); }
 
 .chev {
@@ -463,20 +466,63 @@ h2:first-child { margin-top: 0; }
 .paper-body p { max-width: 44rem; color: var(--ink); }
 
 /* ---------- Teaching ---------- */
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.25rem;
+}
 .hours {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.25rem 1.5rem;
-  max-width: 34rem;
-  padding: 1.5rem 1.75rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  align-content: start;
+  gap: 0.45rem 1.25rem;
+  padding: 1.4rem 1.6rem 1.5rem;
   background: var(--bg-raised);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--teal);
+  border-top: 3px solid var(--teal);
   border-radius: 4px;
 }
-.hours .day { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; color: var(--ink-strong); padding-top: 0.15rem; }
-.hours .time { margin: 0; }
-.hours .place { grid-column: 1 / -1; margin: 0.75rem 0 0; color: var(--muted); font-size: 0.97rem; }
+.hours h3 {
+  grid-column: 1 / -1;
+  margin: 0 0 0.6rem;
+  font-family: var(--garamond);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink-strong);
+}
+.hours h3 span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+.hours .day { font-family: var(--sans); font-weight: 700; font-size: 0.92rem; color: var(--ink-strong); }
+.hours .time { margin: 0; white-space: nowrap; }
+.mode {
+  justify-self: end;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.mode--zoom { border-color: rgba(125, 182, 177, 0.45); color: var(--teal); }
+.hours .place {
+  grid-column: 1 / -1;
+  margin: 0.85rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
 .entries {
   margin: 0;
@@ -607,7 +653,9 @@ h2:first-child { margin-top: 0; }
   .entries li { grid-template-columns: 1fr; }
   .entry-date { text-align: left; }
 
-  .hours { padding: 1.25rem; }
+  .hours { padding: 1.2rem 1.1rem; column-gap: 0.75rem; }
+  .hours .time { white-space: normal; }
+  .mode { padding: 0.05rem 0.45rem; font-size: 0.7rem; }
   .facts { grid-template-columns: 1fr; gap: 0.1rem; }
   .facts dd { margin-bottom: 0.9rem; }
 }
