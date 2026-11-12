@@ -243,6 +243,9 @@ a:hover { color: var(--ink-strong); text-decoration-color: var(--teal); }
   object-fit: cover;
   animation: settle 2.2s var(--ease) both;
 }
+/* Taller banner for photos that need more room (CV and Teaching). */
+.banner--tall { height: clamp(20rem, 42vw, 30rem); }
+
 /* Shades the top for the menu, and fades the bottom into the page. */
 .banner::after {
   content: "";
